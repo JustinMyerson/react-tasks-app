@@ -2,4 +2,6 @@
   display: flex;
   justify-content: center;
   background-color: #5aa480;
+  color: white;
+  padding: 0 20px;
 }
