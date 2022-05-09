@@ -6,7 +6,7 @@ import "./Header.css";
 function Header() {
   return (
     <div className="header-div">
-      Justin's To-Do List
+      <h1 className="header-title">Justin's To-Do List</h1>
       <Nav></Nav>
     </div>
   );
