@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./NewTodoForm.css";
 
 function AddTodoModal({ onAddNewTodo }) {
-  const [title, setTitle] = useState(0);
+  const [title, setTitle] = useState(null);
 
   function onTitleChange(event) {
     setTitle(event.currentTarget.value);
@@ -11,6 +11,9 @@ function AddTodoModal({ onAddNewTodo }) {
 
   function onFormSubmit(event) {
     event.preventDefault();
+    if (title === null) {
+      return null;
+    }
     onAddNewTodo(title);
   }
 
@@ -21,8 +24,9 @@ function AddTodoModal({ onAddNewTodo }) {
         <input
           className="input-field"
           type="text"
-          placeholder="Enter Task Here"
+          value={title}
           onChange={onTitleChange}
+          required
         />
         <button className="submit-button" type="submit" onClick={onFormSubmit}>
           Add New Task
