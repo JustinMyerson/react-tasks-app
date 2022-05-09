@@ -1,3 +1,10 @@
-.reset-button {
+.to-do-buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reset-button,
+.add-task-button {
   margin-top: 5px;
 }

@@ -11,7 +11,7 @@ export const initialState = [
   },
   {
     id: 2,
-    title: "Feed p",
+    title: "Feed the dogs",
     isComplete: true,
   },
 ];
