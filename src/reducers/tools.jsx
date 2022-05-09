@@ -27,10 +27,9 @@ export function todoReducer(state = initialState, action) {
       return newTodos;
     case "resetTodo":
       console.log(action.type);
-      return state;
+      return initialState;
     default:
       console.log(action.type);
-      console.log("teststststststs");
       return state;
   }
 }
