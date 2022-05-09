@@ -1,0 +1,14 @@
+.about-div {
+  background-color: wheat;
+}
+
+.about-header {
+  color: #5aa480;
+  font-size: 50px;
+  padding-left: 5px;
+  margin: 0;
+}
+
+.about-paragraph {
+  padding: 5px;
+}
