@@ -16,10 +16,16 @@ function AddTodoModal({ onAddNewTodo }) {
 
   return (
     <div className="new-form-div">
-      <form>
-        <input type="text" value={title} onChange={onTitleChange} />
-        <button type="submit" onClick={onFormSubmit}>
-          Submit
+      <form className="form">
+        <h1>Task</h1>
+        <input
+          className="input-field"
+          type="text"
+          placeholder="Enter Task Here"
+          onChange={onTitleChange}
+        />
+        <button className="submit-button" type="submit" onClick={onFormSubmit}>
+          Add New Task
         </button>
       </form>
     </div>
