@@ -1,35 +1,39 @@
 import React from "react";
 
-import { useState } from "react";
+import { useReducer } from "react";
 import Todo from "../Todo/Todo";
 
-const initialTodos = [
-  {
-    id: 0,
-    title: "Clean dishes",
-    isComplete: false,
-  },
-  {
-    id: 1,
-    title: "Take out trash",
-    isComplete: false,
-  },
-  {
-    id: 2,
-    title: "Feed pets",
-    isComplete: true,
-  },
-];
+import { initialState, todoReducer } from "../../reducers/tools";
+
+// const initialTodos = [
+//   {
+//     id: 0,
+//     title: "Clean dishes",
+//     isComplete: false,
+//   },
+//   {
+//     id: 1,
+//     title: "Take out trash",
+//     isComplete: false,
+//   },
+//   {
+//     id: 2,
+//     title: "Feed pets",
+//     isComplete: true,
+//   },
+// ];
 
 function TodoList() {
-  const [todos, setTodos] = useState(() => initialTodos);
+  // const [todos, setTodos] = useState(() => initialTodos);
+
+  const [todosReducer, dispatch] = useReducer(todoReducer, initialState);
 
   return (
     <div>
       <div className="still-todo-div">
         <h2>To Do</h2>
         <div className="render-to-do">
-          {todos
+          {todosReducer
             .filter((todos) => todos.isComplete !== true)
             .map((todo) => (
               <Todo
@@ -43,7 +47,7 @@ function TodoList() {
       <div className="completed">
         <h2>Completed</h2>
         <div className="render-done">
-          {todos
+          {todosReducer
             .filter((todos) => todos.isComplete === true)
             .map((todo) => (
               <Todo
