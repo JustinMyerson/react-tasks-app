@@ -19,12 +19,15 @@ export const initialState = [
 export function todoReducer(state = initialState, action) {
   switch (action.type) {
     case "addTodo":
+      const newTodos = [...state];
+      const newId = Math.floor(Math.random() * 9999999);
+      newTodos.push({ id: newId, title: action.payload, isComplete: false });
       console.log(action.type);
-      return state;
+      return newTodos;
     case "deleteTodo":
       console.log(action.type);
-      const newTodos = state.filter((todo) => todo.id !== action.payload);
-      return newTodos;
+      const updatedTodos = state.filter((todo) => todo.id !== action.payload);
+      return updatedTodos;
     case "resetTodo":
       console.log(action.type);
       return initialState;
