@@ -1,0 +1,5 @@
+.todos-div {
+  display: flex;
+  background-color: wheat;
+  justify-content: center;
+}

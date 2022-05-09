@@ -1,7 +1,7 @@
 .todo-div {
   display: flex;
   flex-direction: row;
-  background-color: antiquewhite;
+  background-color: #5aa480;
   justify-content: space-between;
   margin: 5px 0px;
   padding: 5px;
@@ -13,9 +13,19 @@
   justify-content: space-between;
 }
 
+.add-task-button,
+.reset-button {
+  width: 125px;
+  height: 35px;
+}
+
 .button-o,
 .button-x {
   width: 60px;
   height: 60px;
   margin-left: 10px;
+}
+
+.heading {
+  text-transform: capitalize;
 }

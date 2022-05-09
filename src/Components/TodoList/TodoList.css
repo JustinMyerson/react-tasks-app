@@ -8,3 +8,10 @@
 .add-task-button {
   margin-top: 5px;
 }
+
+.still-todo-div,
+.completed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
