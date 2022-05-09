@@ -2,7 +2,11 @@ import React from "react";
 
 import "./Todo.css";
 
-function Todo({ id, title, isComplete }) {
+function Todo({ id, title, isComplete, onDeleteTodo }) {
+  function onDeleteClick(id) {
+    onDeleteTodo(id);
+  }
+
   return (
     <div className="todo-div">
       <div className="heading">
@@ -10,7 +14,9 @@ function Todo({ id, title, isComplete }) {
       </div>
       <div className="buttons">
         <button className="button-o">O</button>
-        <button className="button-x">X</button>
+        <button className="button-x" onClick={() => onDeleteClick(id)}>
+          X
+        </button>
       </div>
     </div>
   );

@@ -5,28 +5,12 @@ import Todo from "../Todo/Todo";
 
 import { initialState, todoReducer } from "../../reducers/tools";
 
-// const initialTodos = [
-//   {
-//     id: 0,
-//     title: "Clean dishes",
-//     isComplete: false,
-//   },
-//   {
-//     id: 1,
-//     title: "Take out trash",
-//     isComplete: false,
-//   },
-//   {
-//     id: 2,
-//     title: "Feed pets",
-//     isComplete: true,
-//   },
-// ];
-
 function TodoList() {
-  // const [todos, setTodos] = useState(() => initialTodos);
-
   const [todosReducer, dispatch] = useReducer(todoReducer, initialState);
+
+  function onDeleteTodo(id) {
+    dispatch({ type: "deleteTodo", payload: id });
+  }
 
   return (
     <div>
@@ -40,6 +24,7 @@ function TodoList() {
                 id={todo.id}
                 title={todo.title}
                 isComplete={todo.isComplete}
+                onDeleteTodo={onDeleteTodo}
               />
             ))}
         </div>
@@ -54,6 +39,7 @@ function TodoList() {
                 id={todo.id}
                 title={todo.title}
                 isComplete={todo.isComplete}
+                onDeleteTodo={onDeleteTodo}
               />
             ))}
         </div>

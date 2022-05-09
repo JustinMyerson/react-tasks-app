@@ -23,12 +23,14 @@ export function todoReducer(state = initialState, action) {
       return state;
     case "deleteTodo":
       console.log(action.type);
-      return state;
+      const newTodos = state.filter((todo) => todo.id !== action.payload);
+      return newTodos;
     case "resetTodo":
       console.log(action.type);
       return state;
     default:
       console.log(action.type);
+      console.log("teststststststs");
       return state;
   }
 }
