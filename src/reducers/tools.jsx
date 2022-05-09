@@ -31,6 +31,12 @@ export function todoReducer(state = initialState, action) {
     case "resetTodo":
       console.log(action.type);
       return initialState;
+    case "toggleCompleted":
+      return state.map((todo) =>
+        todo.id === action.payload
+          ? { ...todo, isComplete: !todo.isComplete }
+          : todo
+      );
     default:
       console.log(action.type);
       return state;

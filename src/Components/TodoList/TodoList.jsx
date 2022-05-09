@@ -30,6 +30,10 @@ function TodoList() {
     setFormVisible(!isFormVisible);
   }
 
+  function toggleTaskCompleted(id) {
+    dispatch({ type: "toggleCompleted", payload: id });
+  }
+
   return (
     <div className="todo-list-div">
       <div className="to-do-buttons-div">
@@ -51,6 +55,7 @@ function TodoList() {
                 title={todo.title}
                 isComplete={todo.isComplete}
                 onDeleteTodo={onDeleteTodo}
+                toggleTaskCompleted={toggleTaskCompleted}
               />
             ))}
         </div>

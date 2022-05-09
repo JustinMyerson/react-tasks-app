@@ -2,9 +2,13 @@ import React from "react";
 
 import "./Todo.css";
 
-function Todo({ id, title, isComplete, onDeleteTodo }) {
+function Todo({ id, title, isComplete, onDeleteTodo, toggleTaskCompleted }) {
   function onDeleteClick(id) {
     onDeleteTodo(id);
+  }
+
+  function onToggleClick(id) {
+    toggleTaskCompleted(id);
   }
 
   return (
@@ -13,7 +17,9 @@ function Todo({ id, title, isComplete, onDeleteTodo }) {
         <h3 className="h3-left">{title}</h3>
       </div>
       <div className="buttons">
-        <button className="button-o">O</button>
+        <button className="button-o" onClick={() => onToggleClick(id)}>
+          O
+        </button>
         <button className="button-x" onClick={() => onDeleteClick(id)}>
           X
         </button>
