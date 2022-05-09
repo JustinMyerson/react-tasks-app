@@ -5,7 +5,7 @@ import Todos from "../src/Pages/Todos/index";
 import About from "../src/Pages/About/index";
 import Home from "../src/Pages/Home/index";
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <Layout>
