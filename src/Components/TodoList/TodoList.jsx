@@ -26,8 +26,8 @@ function TodoList() {
   }
 
   function onAddNewTodo(title, color) {
-    dispatch({ type: "addTodo", payload: { color: color, title: title } });
-    console.log(title, color);
+    dispatch({ type: "addTodo", payload: { title, color } });
+    console.log(title, color, "payload");
     setFormVisible(!isFormVisible);
   }
 
@@ -54,6 +54,7 @@ function TodoList() {
               <Todo
                 id={todo.id}
                 title={todo.title}
+                color={todo.color}
                 isComplete={todo.isComplete}
                 onDeleteTodo={onDeleteTodo}
                 toggleTaskCompleted={toggleTaskCompleted}
@@ -70,6 +71,7 @@ function TodoList() {
               <Todo
                 id={todo.id}
                 title={todo.title}
+                color={todo.color}
                 isComplete={todo.isComplete}
                 onDeleteTodo={onDeleteTodo}
               />

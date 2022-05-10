@@ -13,7 +13,6 @@ function AddTodoModal({ onAddNewTodo }) {
 
   function onColorChange(event) {
     setColor(event.currentTarget.value);
-    console.log(event.currentTarget.value);
   }
 
   function onFormSubmit(event) {
@@ -21,6 +20,7 @@ function AddTodoModal({ onAddNewTodo }) {
     if (title === null) {
       return null;
     }
+    console.log(title, color, "onadd");
     onAddNewTodo(title, color);
   }
 

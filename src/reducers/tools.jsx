@@ -24,13 +24,13 @@ export function todoReducer(state = initialState, action) {
     case "addTodo":
       const newTodos = [...state];
       const newId = Math.floor(Math.random() * 9999999);
-      console.log(action.payload);
       newTodos.push({
         id: newId,
-        title: action.payload,
+        title: action.payload.title,
         color: action.payload.color,
         isComplete: false,
       });
+      console.log(newTodos);
       return newTodos;
     case "deleteTodo":
       const updatedTodos = state.filter((todo) => todo.id !== action.payload);

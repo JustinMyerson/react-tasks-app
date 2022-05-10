@@ -18,9 +18,10 @@ function Todo({
     toggleTaskCompleted(id);
   }
 
+  console.log(color, "color");
+
   return (
-    <div className="todo-div" style={{ backgroundColor: { color } }}>
-      {console.log(color, title)}
+    <div className="todo-div" style={{ backgroundColor: color }}>
       <div className="heading">
         <h3 className="h3-left">{title}</h3>
       </div>
