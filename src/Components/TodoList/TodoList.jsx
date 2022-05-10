@@ -25,8 +25,9 @@ function TodoList() {
     setFormVisible(!isFormVisible);
   }
 
-  function onAddNewTodo(title) {
-    dispatch({ type: "addTodo", payload: title });
+  function onAddNewTodo(title, color) {
+    dispatch({ type: "addTodo", payload: { color: color, title: title } });
+    console.log(title, color);
     setFormVisible(!isFormVisible);
   }
 

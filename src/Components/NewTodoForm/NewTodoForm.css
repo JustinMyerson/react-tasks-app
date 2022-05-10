@@ -5,11 +5,13 @@
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: 92.5%;
+  height: 100%;
   top: 0;
   left: 0;
-  background: rgba(97, 237, 170, 0.95);
+  background: rgba(97, 237, 170, 0.97);
   padding: 10px;
+  font-family: Arial;
+  color: wheat;
 }
 
 .form {
@@ -23,11 +25,17 @@
   font-size: 30px;
 }
 
+.color-picker {
+  margin: 25px;
+  width: 100px;
+  height: 50px;
+}
+
 .submit-button {
   background-color: #04aa6d;
   border: none;
-  color: white;
-  padding: 8px 16px;
+  color: wheat;
+  padding: 8px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;

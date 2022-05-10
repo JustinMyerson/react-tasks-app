@@ -2,7 +2,14 @@ import React from "react";
 
 import "./Todo.css";
 
-function Todo({ id, title, isComplete, onDeleteTodo, toggleTaskCompleted }) {
+function Todo({
+  id,
+  title,
+  color,
+  isComplete,
+  onDeleteTodo,
+  toggleTaskCompleted,
+}) {
   function onDeleteClick(id) {
     onDeleteTodo(id);
   }
@@ -12,7 +19,8 @@ function Todo({ id, title, isComplete, onDeleteTodo, toggleTaskCompleted }) {
   }
 
   return (
-    <div className="todo-div">
+    <div className="todo-div" style={{ backgroundColor: { color } }}>
+      {console.log(color, title)}
       <div className="heading">
         <h3 className="h3-left">{title}</h3>
       </div>

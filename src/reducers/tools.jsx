@@ -2,16 +2,19 @@ export const initialState = [
   {
     id: 0,
     title: "Clean dishes",
+    color: "#5aa480",
     isComplete: false,
   },
   {
     id: 1,
     title: "Take out trash",
+    color: "#5aa480",
     isComplete: false,
   },
   {
     id: 2,
     title: "Feed the dogs",
+    color: "#5aa480",
     isComplete: true,
   },
 ];
@@ -21,15 +24,18 @@ export function todoReducer(state = initialState, action) {
     case "addTodo":
       const newTodos = [...state];
       const newId = Math.floor(Math.random() * 9999999);
-      newTodos.push({ id: newId, title: action.payload, isComplete: false });
-      console.log(action.type);
+      console.log(action.payload);
+      newTodos.push({
+        id: newId,
+        title: action.payload,
+        color: action.payload.color,
+        isComplete: false,
+      });
       return newTodos;
     case "deleteTodo":
-      console.log(action.type);
       const updatedTodos = state.filter((todo) => todo.id !== action.payload);
       return updatedTodos;
     case "resetTodo":
-      console.log(action.type);
       return initialState;
     case "toggleCompleted":
       return state.map((todo) =>
@@ -38,7 +44,6 @@ export function todoReducer(state = initialState, action) {
           : todo
       );
     default:
-      console.log(action.type);
       return state;
   }
 }

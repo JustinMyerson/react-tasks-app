@@ -7,10 +7,13 @@ function AddTodoModal({ onAddNewTodo }) {
 
   const [color, setColor] = useState(null);
 
-  console.log("colorPicker, color");
-
   function onTitleChange(event) {
     setTitle(event.currentTarget.value);
+  }
+
+  function onColorChange(event) {
+    setColor(event.currentTarget.value);
+    console.log(event.currentTarget.value);
   }
 
   function onFormSubmit(event) {
@@ -18,7 +21,7 @@ function AddTodoModal({ onAddNewTodo }) {
     if (title === null) {
       return null;
     }
-    onAddNewTodo(title);
+    onAddNewTodo(title, color);
   }
 
   return (
@@ -33,9 +36,10 @@ function AddTodoModal({ onAddNewTodo }) {
           required
         />
         <input
+          className="color-picker"
           type="color"
           value={color}
-          onChange={(e) => setColor(e.target.value)}
+          onChange={onColorChange}
         />
         <button className="submit-button" type="submit" onClick={onFormSubmit}>
           Add New Task
