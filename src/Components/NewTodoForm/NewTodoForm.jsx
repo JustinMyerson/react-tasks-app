@@ -5,7 +5,9 @@ import "./NewTodoForm.css";
 function AddTodoModal({ onAddNewTodo }) {
   const [title, setTitle] = useState(null);
 
-  const [color, setColor] = useState(null);
+  // Color needs to be black as default because that is what color picker starts with
+  // Otherwise we run the risk of errors because the color only registers when the color changes
+  const [color, setColor] = useState("black");
 
   const [isValidTitle, setIsValidTitle] = useState(true);
 
