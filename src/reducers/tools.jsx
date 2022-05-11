@@ -4,18 +4,21 @@ export const initialState = [
     title: "Clean dishes",
     color: "#5aa480",
     isComplete: false,
+    icon: "GiWashingMachine",
   },
   {
     id: 1,
     title: "Take out trash",
     color: "#5aa480",
     isComplete: false,
+    icon: "BsFillTrashFill",
   },
   {
     id: 2,
     title: "Feed the dogs",
     color: "#5aa480",
     isComplete: true,
+    icon: "FaDog",
   },
 ];
 
@@ -29,8 +32,8 @@ export function todoReducer(state = initialState, action) {
         title: action.payload.title,
         color: action.payload.color,
         isComplete: false,
+        icon: action.payload.icon,
       });
-      console.log(newTodos);
       return newTodos;
     case "deleteTodo":
       const updatedTodos = state.filter((todo) => todo.id !== action.payload);

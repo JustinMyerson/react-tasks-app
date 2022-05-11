@@ -1,6 +1,5 @@
 .new-form-div {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -37,7 +36,7 @@
   color: wheat;
   padding: 8px;
   text-decoration: none;
-  margin: 4px 2px;
+  margin-bottom: 200px;
   cursor: pointer;
   width: 320px;
   height: 100px;
@@ -47,4 +46,13 @@
 .error-div {
   color: red;
   font-size: 20px;
+}
+
+.cancel-button {
+  all: unset;
+  cursor: pointer;
+}
+
+.cancel-button:focus {
+  outline: orange 5px auto;
 }

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 
 import "./NewTodoForm.css";
 
-function AddTodoModal({ onAddNewTodo }) {
+import { BsListTask } from "react-icons/bs";
+import { ImCancelCircle } from "react-icons/im";
+
+function AddTodoModal({ onAddNewTodo, onCancelSubmit }) {
   const [title, setTitle] = useState(null);
 
   // Color needs to be black as default because that is what color picker starts with
   // Otherwise we run the risk of errors because the color only registers when the color changes
-  const [color, setColor] = useState("black");
+  const [color, setColor] = useState("#000000");
 
   const [isValidTitle, setIsValidTitle] = useState(true);
 
@@ -31,7 +34,7 @@ function AddTodoModal({ onAddNewTodo }) {
   return (
     <div className="new-form-div">
       <form className="form">
-        <h1>Task</h1>
+        <BsListTask style={{ color: "black", fontSize: "100px" }} />
         <input
           className="input-field"
           type="text"
@@ -45,12 +48,16 @@ function AddTodoModal({ onAddNewTodo }) {
           value={color}
           onChange={onColorChange}
         />
+        {/* <IconPicker value={selectedIcon} onChange={(v) => setSelectedIcon(v)} /> */}
         <button className="submit-button" type="submit" onClick={onFormSubmit}>
           Add New Task
         </button>
         {!isValidTitle ? (
           <div className="error-div"> Enter a Valid Task Title </div>
         ) : null}
+        <button className="cancel-button" onClick={onCancelSubmit}>
+          <ImCancelCircle style={{ color: "black", fontSize: "50px" }} />
+        </button>
       </form>
     </div>
   );

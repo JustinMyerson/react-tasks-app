@@ -6,6 +6,8 @@ import Todo from "../Todo/Todo";
 
 import { initialState, todoReducer } from "../../reducers/tools";
 
+import { FaPlus, FaRedoAlt } from "react-icons/fa";
+
 import "./TodoList.css";
 
 function TodoList() {
@@ -25,9 +27,12 @@ function TodoList() {
     setFormVisible(!isFormVisible);
   }
 
-  function onAddNewTodo(title, color) {
-    dispatch({ type: "addTodo", payload: { title, color } });
-    console.log(title, color, "payload");
+  function onAddNewTodo(title, color, icon) {
+    dispatch({ type: "addTodo", payload: { title, color, icon } });
+    setFormVisible(!isFormVisible);
+  }
+
+  function onCancelSubmit() {
     setFormVisible(!isFormVisible);
   }
 
@@ -39,14 +44,14 @@ function TodoList() {
     <div className="todo-list-div">
       <div className="to-do-buttons-div">
         <button className="reset-button" onClick={() => onResetButtonClick()}>
-          Reset
+          <FaRedoAlt />
         </button>
         <button className="add-task-button" onClick={() => onAddTodoCLick()}>
-          Add Task
+          <FaPlus />
         </button>
       </div>
       <div className="still-todo-div">
-        <h2>To Do</h2>
+        <h2>TO DO</h2>
         <div className="render-to-do">
           {todosReducer
             .filter((todos) => todos.isComplete !== true)
@@ -56,6 +61,7 @@ function TodoList() {
                 title={todo.title}
                 color={todo.color}
                 isComplete={todo.isComplete}
+                icon={todo.icon}
                 onDeleteTodo={onDeleteTodo}
                 toggleTaskCompleted={toggleTaskCompleted}
               />
@@ -63,7 +69,7 @@ function TodoList() {
         </div>
       </div>
       <div className="completed">
-        <h2>Completed</h2>
+        <h2>COMPLETED</h2>
         <div className="render-done">
           {todosReducer
             .filter((todos) => todos.isComplete === true)
@@ -72,13 +78,20 @@ function TodoList() {
                 id={todo.id}
                 title={todo.title}
                 color={todo.color}
+                icon={todo.icon}
                 isComplete={todo.isComplete}
                 onDeleteTodo={onDeleteTodo}
+                toggleTaskCompleted={toggleTaskCompleted}
               />
             ))}
         </div>
       </div>
-      {isFormVisible ? <NewTodoForm onAddNewTodo={onAddNewTodo} /> : null}
+      {isFormVisible ? (
+        <NewTodoForm
+          onAddNewTodo={onAddNewTodo}
+          onCancelSubmit={onCancelSubmit}
+        />
+      ) : null}
     </div>
   );
 }
