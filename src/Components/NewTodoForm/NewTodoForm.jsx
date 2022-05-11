@@ -7,6 +7,8 @@ function AddTodoModal({ onAddNewTodo }) {
 
   const [color, setColor] = useState(null);
 
+  const [isValidTitle, setIsValidTitle] = useState(true);
+
   function onTitleChange(event) {
     setTitle(event.currentTarget.value);
   }
@@ -18,9 +20,9 @@ function AddTodoModal({ onAddNewTodo }) {
   function onFormSubmit(event) {
     event.preventDefault();
     if (title === null) {
+      setIsValidTitle(false);
       return null;
     }
-    console.log(title, color, "onadd");
     onAddNewTodo(title, color);
   }
 
@@ -44,6 +46,9 @@ function AddTodoModal({ onAddNewTodo }) {
         <button className="submit-button" type="submit" onClick={onFormSubmit}>
           Add New Task
         </button>
+        {!isValidTitle ? (
+          <div className="error-div"> Enter a Valid Task Title </div>
+        ) : null}
       </form>
     </div>
   );
