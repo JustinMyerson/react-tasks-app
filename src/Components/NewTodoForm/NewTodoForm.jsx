@@ -4,6 +4,7 @@ import "./NewTodoForm.css";
 
 import { BsListTask } from "react-icons/bs";
 import { ImCancelCircle } from "react-icons/im";
+import { RiPlayListAddFill } from "react-icons/ri";
 
 function AddTodoModal({ onAddNewTodo, onCancelSubmit }) {
   const [title, setTitle] = useState(null);
@@ -34,7 +35,7 @@ function AddTodoModal({ onAddNewTodo, onCancelSubmit }) {
   return (
     <div className="new-form-div">
       <form className="form">
-        <BsListTask style={{ color: "black", fontSize: "100px" }} />
+        <div className="add-new-task">Add A New Task</div>
         <input
           className="input-field"
           type="text"
@@ -50,7 +51,7 @@ function AddTodoModal({ onAddNewTodo, onCancelSubmit }) {
         />
         {/* <IconPicker value={selectedIcon} onChange={(v) => setSelectedIcon(v)} /> */}
         <button className="submit-button" type="submit" onClick={onFormSubmit}>
-          Add New Task
+          <RiPlayListAddFill style={{ color: "black", fontSize: "50px" }} />
         </button>
         {!isValidTitle ? (
           <div className="error-div"> Enter a Valid Task Title </div>
