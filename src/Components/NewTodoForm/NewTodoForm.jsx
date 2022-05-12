@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import "./NewTodoForm.css";
 
-import { BsListTask } from "react-icons/bs";
 import { ImCancelCircle } from "react-icons/im";
 import { RiPlayListAddFill } from "react-icons/ri";
 
